@@ -13,7 +13,7 @@ public class Pirex {
         PirexGUI   gui;
 
         gui = new PirexGUI();
-        gui.setSize(400,200);
+        gui.setSize(1000,500);
         gui.setVisible(true);
     }
 }
