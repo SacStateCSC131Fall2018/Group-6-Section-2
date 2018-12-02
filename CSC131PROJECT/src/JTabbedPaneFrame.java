@@ -11,11 +11,7 @@ import javax.swing.text.*;
  */
 public class JTabbedPaneFrame extends JFrame
 {
-    
-
-
-
-    
+       
     /**
      * Default constructor
      */
@@ -25,7 +21,7 @@ public class JTabbedPaneFrame extends JFrame
        JPanel        complements, criticisms;
        JTabbedPane   tabbedPane;
 
-
+       setTitle("Pirex");
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
        contentPane = getContentPane();
