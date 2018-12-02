@@ -9,7 +9,7 @@ public class PirexGUI extends JFrame {
 	
     public PirexGUI() {
        Container     contentPane;
-       JPanel        complements, criticisms;
+       JPanel        search, load, summarize;
        JTabbedPane   tabbedPane;
        ImageIcon icon = new ImageIcon("icons/icon.png");
        
@@ -23,18 +23,23 @@ public class PirexGUI extends JFrame {
        tabbedPane = new JTabbedPane();
        contentPane.add(tabbedPane, BorderLayout.CENTER);
 
-       complements = new JPanel();
-       complements.setLayout(new BorderLayout());
-       complements.add(new JLabel("Things you like about this class:"),
+       search = new JPanel();
+       search.setLayout(new BorderLayout());
+       search.add(new JLabel("Things you like about this class:"),
                        BorderLayout.NORTH);
-       complements.add(new JTextArea(), BorderLayout.CENTER);
+       search.add(new JTextArea(), BorderLayout.CENTER);
 
-       criticisms = new JPanel();
-       criticisms.setLayout(new BorderLayout());
-       criticisms.add(new JLabel("Things you dislike about this class:"),
+       load = new JPanel();
+       load.setLayout(new BorderLayout());
+       load.add(new JLabel("Things you dislike about this class:"),
                       BorderLayout.NORTH);
+       
+       summarize = new JPanel();
+       summarize.setLayout(new BorderLayout());
+       
 
-       tabbedPane.addTab("Complements", complements);
-       tabbedPane.addTab("Criticisms",  criticisms);
+       tabbedPane.addTab("Search for Documents", search);
+       tabbedPane.addTab("Load Documents",  load);
+       tabbedPane.addTab("Summarize Documents", summarize);
     }
 }
