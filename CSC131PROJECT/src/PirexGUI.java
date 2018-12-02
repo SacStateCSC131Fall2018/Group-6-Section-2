@@ -1,3 +1,4 @@
+//TODO Remove unnecessary imports so we don't lose points. 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -24,10 +25,42 @@ public class PirexGUI extends JFrame {
        contentPane.add(tabbedPane, BorderLayout.CENTER);
 
        search = new JPanel();
-       search.setLayout(new BorderLayout());
-       search.add(new JLabel("Things you like about this class:"),
-                       BorderLayout.NORTH);
-       search.add(new JTextArea(), BorderLayout.CENTER);
+       search.setLayout(new GridBagLayout());
+       GridBagConstraints c = new GridBagConstraints();
+       c.insets = new Insets(5,10,5,10);
+       c.gridx = 0;
+       c.gridy = 0;
+       search.add(new JLabel("Query:"), c);
+       c.gridx = 1;
+       c.fill = GridBagConstraints.BOTH;
+       c.weightx = 1;
+       search.add(new JTextField(), c);
+       c.gridx = 2;
+       c.fill = GridBagConstraints.NONE;
+       c.weightx = 0;
+       search.add(new JButton("Clear"), c);
+       c.gridx = 0;
+       c.gridy = 1;
+       c.gridwidth = 3;
+       c.fill = GridBagConstraints.BOTH;
+       c.weighty = 0.5;
+       JList<JLabel> documentList = new JList<JLabel>();
+       documentList.add(new JLabel("Test"));
+       search.add(documentList, c);
+       c.gridy = 2;
+       c.fill = GridBagConstraints.NONE;
+       c.anchor = GridBagConstraints.WEST;
+       c.weighty = 0;
+       JLabel retrievedDocs = new JLabel("Retrieved # Documents");
+       search.add(retrievedDocs, c);
+       JTextArea documentText = new JTextArea();
+       documentText.setEditable(false);
+       JScrollPane scrollPane = new JScrollPane(documentText);
+       scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+       c.gridy = 3;
+       c.fill = GridBagConstraints.BOTH;
+       c.weighty = 0.5;
+       search.add(scrollPane, c);
 
        load = new JPanel();
        load.setLayout(new BorderLayout());
