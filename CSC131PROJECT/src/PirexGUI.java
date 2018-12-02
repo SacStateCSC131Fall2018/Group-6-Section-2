@@ -15,7 +15,7 @@ public class PirexGUI extends JFrame {
        //Menu bar
 	    JMenuBar menuBar;
 		JMenu file, help;
-		JMenuItem exit, about, test;
+		JMenuItem exit, about;
 		menuBar = new JMenuBar();
 	
 		file = new JMenu("File");	
