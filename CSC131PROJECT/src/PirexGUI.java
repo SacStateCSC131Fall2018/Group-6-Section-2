@@ -4,9 +4,6 @@ import javax.swing.*;
 import javax.swing.event.*;
 import javax.swing.text.*;
 
-/**
- * A frame that illustrates the use of a JTabbedPane.
- */
 public class PirexGUI extends JFrame {
 	private static final long serialVersionUID = 2908649342413183726L;
 	
