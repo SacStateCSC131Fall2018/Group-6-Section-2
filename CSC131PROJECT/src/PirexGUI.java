@@ -11,16 +11,15 @@ public class PirexGUI extends JFrame {
        Container     contentPane;
        JPanel        search, load, summarize;
        JTabbedPane   tabbedPane;
-       	
+    
        //Menu bar
-	    JMenuBar menuBar;
-		JMenu file, help;
-		JMenuItem exit, about, test;
-		menuBar = new JMenuBar();
-	
-		file = new JMenu("File");	
-		exit = new JMenuItem(new AbstractAction("exit")
-		{
+	   JMenuBar menuBar;
+	   JMenu file, help;
+	   JMenuItem exit, about, test;
+	   menuBar = new JMenuBar();
+	   file = new JMenu("File");	
+	   exit = new JMenuItem(new AbstractAction("exit")
+	   {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}	
