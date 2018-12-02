@@ -11,7 +11,9 @@ public class PirexGUI extends JFrame {
        Container     contentPane;
        JPanel        complements, criticisms;
        JTabbedPane   tabbedPane;
-
+       ImageIcon icon = new ImageIcon("icons/icon.png");
+       
+       setIconImage(icon.getImage());
        setTitle("Pirex");
        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
