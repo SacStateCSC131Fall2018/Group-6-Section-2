@@ -35,7 +35,6 @@ public class PirexGUI extends JFrame {
        criticisms.add(new JLabel("Things you dislike about this class:"),
                       BorderLayout.NORTH);
 
-        
        tabbedPane.addTab("Complements", complements);
        tabbedPane.addTab("Criticisms",  criticisms);
     }

@@ -1,5 +1,3 @@
-
-
 /**
  * An example that uses a JTabbedPane
  *
