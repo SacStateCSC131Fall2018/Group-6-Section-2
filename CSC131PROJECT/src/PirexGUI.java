@@ -16,15 +16,28 @@ public class PirexGUI extends JFrame {
 		//Menu bar
 		JMenuBar menuBar;
 		JMenu file, help;
-		JMenuItem exit, about, test;
+		JMenuItem exit, about, test, export;
 		menuBar = new JMenuBar();
 		file = new JMenu("File");	
-		exit = new JMenuItem(new AbstractAction("exit")
+		exit = new JMenuItem(new AbstractAction("Exit")
 		{
+			  //Serialize
+			private static final long serialVersionUID = 1L;
+
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}	
 		});
+		export = new JMenuItem(new AbstractAction("Export")
+		{
+			  //Serialize
+			private static final long serialVersionUID = 1L;
+
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}	
+		});
+		file.add(export);
 		file.add(exit);
 		menuBar.add(file);
 
@@ -32,6 +45,9 @@ public class PirexGUI extends JFrame {
 
 		about = new JMenuItem(new AbstractAction("about")
 		{
+			 //Serialize
+			private static final long serialVersionUID = 1L;
+
 			public void actionPerformed(ActionEvent e) {
 				JFrame helpWindow = new JFrame();
 				helpWindow.setTitle("Help");
