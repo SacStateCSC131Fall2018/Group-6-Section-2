@@ -21,26 +21,11 @@ public class PirexGUI extends JFrame {
 		file = new JMenu("File");	
 		exit = new JMenuItem(new AbstractAction("Exit")
 		{
-			  //Serialize
+			//Serialize
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
-			}	
-		});
-		
-		export = new JMenuItem(new AbstractAction("Export")
-		{
-			  //Serialize
-			private static final long serialVersionUID = 1L;
-
-			public void actionPerformed(ActionEvent e) {
-				JFrame exportWindow = new JFrame();
-				exportWindow.setTitle("Export");
-				exportWindow.setSize(300,400);
-				exportWindow.setVisible(true);
-				JLabel text = new JLabel("Select file you wish to EXPORT", JLabel.CENTER);
-				exportWindow.add(text);
 			}	
 		});
 		
@@ -59,8 +44,24 @@ public class PirexGUI extends JFrame {
 			}	
 		});
 		
-		file.add(export);
+		export = new JMenuItem(new AbstractAction("Export")
+		{
+			//Serialize
+			private static final long serialVersionUID = 1L;
+
+			public void actionPerformed(ActionEvent e) {
+				JFrame exportWindow = new JFrame();
+				exportWindow.setTitle("Export");
+				exportWindow.setSize(300,400);
+				exportWindow.setVisible(true);
+				JLabel text = new JLabel("Select file you wish to EXPORT", JLabel.CENTER);
+				exportWindow.add(text);
+			}	
+		});
+		
+		
 		file.add(save);
+		file.add(export);
 		file.add(exit);
 		menuBar.add(file);
 
