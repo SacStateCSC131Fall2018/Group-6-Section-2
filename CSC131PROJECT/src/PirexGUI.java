@@ -16,7 +16,7 @@ public class PirexGUI extends JFrame {
 		//Menu bar
 		JMenuBar menuBar;
 		JMenu file, help;
-		JMenuItem exit, about, test, export;
+		JMenuItem exit, about, test, export, save;
 		menuBar = new JMenuBar();
 		file = new JMenu("File");	
 		exit = new JMenuItem(new AbstractAction("Exit")
@@ -28,6 +28,7 @@ public class PirexGUI extends JFrame {
 				System.exit(0);
 			}	
 		});
+		
 		export = new JMenuItem(new AbstractAction("Export")
 		{
 			  //Serialize
@@ -43,7 +44,23 @@ public class PirexGUI extends JFrame {
 			}	
 		});
 		
+		save = new JMenuItem(new AbstractAction("Save Query")
+		{
+			  //Serialize
+			private static final long serialVersionUID = 1L;
+
+			public void actionPerformed(ActionEvent e) {
+				JFrame exportWindow = new JFrame();
+				exportWindow.setTitle("Save Query");
+				exportWindow.setSize(300,400);
+				exportWindow.setVisible(true);
+				JLabel text = new JLabel("Your Query has been saved", JLabel.CENTER);
+				exportWindow.add(text);
+			}	
+		});
+		
 		file.add(export);
+		file.add(save);
 		file.add(exit);
 		menuBar.add(file);
 
