@@ -86,19 +86,31 @@ public class PirexGUI extends JFrame {
 		c.gridx = 1;
 		c.fill = GridBagConstraints.BOTH;
 		c.weightx = 1;
-		search.add(new JTextField(), c);
+		JTextField queryText = new JTextField();
+		search.add(queryText, c);
 		c.gridx = 2;
 		c.fill = GridBagConstraints.NONE;
 		c.weightx = 0;
-		search.add(new JButton("Clear"), c);
+		JButton clearBut = new JButton("Clear");
+		clearBut.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				queryText.setText("");
+			}
+		});
+		search.add(clearBut, c);
 		c.gridx = 0;
 		c.gridy = 1;
 		c.gridwidth = 3;
 		c.fill = GridBagConstraints.BOTH;
 		c.weighty = 0.5;
-		JList<JLabel> documentList = new JList<JLabel>();
-		documentList.add(new JLabel("Test"));
-		search.add(documentList, c);
+		DefaultListModel<String> documentList = new DefaultListModel<String>();
+		documentList.addElement("Test");
+		JList<String> list = new JList<String>(documentList);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		list.setVisibleRowCount(-1);
+		JScrollPane documentListScrollPane = new JScrollPane(list);
+		documentListScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		search.add(documentListScrollPane, c);
 		c.gridy = 2;
 		c.fill = GridBagConstraints.NONE;
 		c.anchor = GridBagConstraints.WEST;
