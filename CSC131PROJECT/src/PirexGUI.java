@@ -193,10 +193,11 @@ public class PirexGUI extends JFrame {
 		c1.insets = new Insets(5,10,5,10);
 		c1.gridx = 0;
 		c1.gridy = 0;
-		load.add(new JLabel("Text File:"), c1);
+		load.add(new JLabel("Text File: "), c1);
 		c1.gridx = 1;
 		c1.fill = GridBagConstraints.BOTH;
 		c1.weightx = 1;
+		
 		load.add(new JTextField(), c1);
 		c1.gridx = 2;
 		c1.fill = GridBagConstraints.NONE;
@@ -207,6 +208,7 @@ public class PirexGUI extends JFrame {
 		c1.gridwidth = 3;
 		c1.fill = GridBagConstraints.BOTH;
 		c1.weighty = 0.5;
+		
 		JButton comments = new JButton("Process");
 		load.add(comments, c1);
 		JTextArea comments1 = new JTextArea();
@@ -220,7 +222,7 @@ public class PirexGUI extends JFrame {
 		c1.gridx = 0;
 		c1.gridy = 2;
 		load.add(scrollPane1, c1);
-		JButton button = new JButton("submit");
+		JButton button = new JButton("Submit");
 		button.setBounds(50,100,95,30);  
 		load.add(button);  
 		load.setSize(200,200);    
@@ -234,8 +236,6 @@ public class PirexGUI extends JFrame {
 		c1.gridwidth = 2;   //2 columns wide
 		c1.gridy = 2;       //third row
 		load.add(button, c1);
-		
-	
 		
 		//summarize document tab
 		summarize = new JPanel();
