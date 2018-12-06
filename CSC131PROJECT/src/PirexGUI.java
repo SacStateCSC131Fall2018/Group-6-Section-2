@@ -116,10 +116,55 @@ public class PirexGUI extends JFrame {
 
 		//load document tab
 		load = new JPanel();
-		load.setLayout(new BorderLayout());
-		load.add(new JLabel("Things you dislike about this class:"),
-				BorderLayout.NORTH);
-
+		load.setLayout(new GridBagLayout());
+		GridBagConstraints c1 = new GridBagConstraints();
+		c1.insets = new Insets(5,10,5,10);
+		c1.gridx = 0;
+		c1.gridy = 0;
+		load.add(new JLabel("ChooseFile:"), c1);
+		c1.gridx = 1;
+		c1.fill = GridBagConstraints.BOTH;
+		c1.weightx = 1;
+		load.add(new JTextField(), c1);
+		c1.gridx = 2;
+		c1.fill = GridBagConstraints.NONE;
+		c1.weightx = 0;
+		load.add(new JButton("Upload"), c1);
+		c1.gridx = 0;
+		c1.gridy = 1;
+		c1.gridwidth = 3;
+		c1.fill = GridBagConstraints.BOTH;
+		c1.weighty = 0.5;
+		JLabel comments = new JLabel("Comments");
+		load.add(comments, c1);
+		JTextArea comments1 = new JTextArea();
+		comments1.setEditable(true);
+		JScrollPane scrollPane1 = new JScrollPane(comments1);
+		scrollPane1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		c1.fill = GridBagConstraints.HORIZONTAL;
+		c1.ipady = 200;      
+		c1.weightx = 0.5;
+		c1.gridwidth = 3;
+		c1.gridx = 0;
+		c1.gridy = 2;
+		load.add(scrollPane1, c1);
+		JButton button = new JButton("submit");
+		button.setBounds(50,100,95,30);  
+		load.add(button);  
+		load.setSize(200,200);    
+		load.setVisible(true); 
+		c1.fill = GridBagConstraints.HORIZONTAL;
+		c1.ipady = 0;       //reset to default
+		c1.weighty = 1.0;   //request any extra vertical space
+		c1.anchor = GridBagConstraints.PAGE_END; //bottom of space
+		c1.insets = new Insets(10,0,0,0);  //top padding
+		c1.gridx = 1;       //aligned with button 2
+		c1.gridwidth = 2;   //2 columns wide
+		c1.gridy = 2;       //third row
+		load.add(button, c1);
+		
+	
+		
 		//summarize document tab
 		summarize = new JPanel();
 		summarize.setLayout(new BorderLayout());
