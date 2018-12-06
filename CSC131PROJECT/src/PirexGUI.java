@@ -34,16 +34,22 @@ public class PirexGUI extends JFrame {
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				JFrame exportWindow = new JFrame();
+				exportWindow.setTitle("Export");
+				exportWindow.setSize(300,400);
+				exportWindow.setVisible(true);
+				JLabel text = new JLabel("Select file you wish to EXPORT", JLabel.CENTER);
+				exportWindow.add(text);
 			}	
 		});
+		
 		file.add(export);
 		file.add(exit);
 		menuBar.add(file);
 
 		help = new JMenu("Help");
 
-		about = new JMenuItem(new AbstractAction("about")
+		about = new JMenuItem(new AbstractAction("About")
 		{
 			 //Serialize
 			private static final long serialVersionUID = 1L;
