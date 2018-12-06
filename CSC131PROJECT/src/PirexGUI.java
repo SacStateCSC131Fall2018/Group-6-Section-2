@@ -197,11 +197,36 @@ public class PirexGUI extends JFrame {
 		c1.gridx = 1;
 		c1.fill = GridBagConstraints.BOTH;
 		c1.weightx = 1;
-		load.add(new JTextField(), c1);
+		JTextField txtPath = new JTextField();
+		
+		load.add(txtPath, c1);
 		c1.gridx = 2;
 		c1.fill = GridBagConstraints.NONE;
 		c1.weightx = 0;
-		load.add(new JButton("Browse"), c1);
+		
+		JButton btnBrowse = new JButton("Browse");
+		btnBrowse.addActionListener(new ActionListener() {
+		      public void actionPerformed(ActionEvent e) {
+		        JFileChooser fileChooser = new JFileChooser();
+		 
+		        // For Directory
+		        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		 
+		        // For File
+		        //fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		 
+		        fileChooser.setAcceptAllFileFilterUsed(false);
+		 
+		        int rVal = fileChooser.showOpenDialog(null);
+		        if (rVal == JFileChooser.APPROVE_OPTION) {
+		          txtPath.setText(fileChooser.getSelectedFile().toString());
+		        }
+		      }
+		    });
+		
+		
+		
+		load.add(btnBrowse, c1);
 		c1.gridx = 0;
 		c1.gridy = 1;
 		c1.gridwidth = 3;
