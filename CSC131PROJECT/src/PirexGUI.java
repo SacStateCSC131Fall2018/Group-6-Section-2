@@ -15,8 +15,8 @@ public class PirexGUI extends JFrame {
 
 		//Menu bar
 		JMenuBar menuBar;
-		JMenu file, help;
-		JMenuItem exit, about, test, export, save;
+		JMenu file, help, options;
+		JMenuItem exit, about, test, export, save, sources, documents;
 		menuBar = new JMenuBar();
 		file = new JMenu("File");	
 		exit = new JMenuItem(new AbstractAction("Exit")
@@ -82,6 +82,42 @@ public class PirexGUI extends JFrame {
 		});
 		help.add(about);
 		menuBar.add(help);
+		
+		options = new JMenu("Options");
+		
+		sources = new JMenuItem(new AbstractAction("Sources")
+		{
+			 //Serialize
+			private static final long serialVersionUID = 1L;
+
+			public void actionPerformed(ActionEvent e) {
+				JFrame sourceWindow = new JFrame();
+				sourceWindow.setTitle("Source");
+				sourceWindow.setSize(300,400);
+				sourceWindow.setVisible(true);
+				JLabel text = new JLabel("This is a test run for the SOURCE FEATURE", JLabel.CENTER);
+				sourceWindow.add(text);
+			}
+		});
+		
+		documents = new JMenuItem(new AbstractAction("Documents")
+		{
+			 //Serialize
+			private static final long serialVersionUID = 1L;
+
+			public void actionPerformed(ActionEvent e) {
+				JFrame docWindow = new JFrame();
+				docWindow.setTitle("Documents");
+				docWindow.setSize(300,400);
+				docWindow.setVisible(true);
+				JLabel text = new JLabel("Your saved DOCUMENTS", JLabel.CENTER);
+				docWindow.add(text);
+			}
+		});
+		
+		options.add(sources);
+		options.add(documents);
+		menuBar.add(options);
 
 		setJMenuBar(menuBar);
 
