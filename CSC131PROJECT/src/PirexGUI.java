@@ -2,6 +2,8 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.*;
 import javax.swing.text.*;
 
@@ -240,7 +242,12 @@ public class PirexGUI extends JFrame {
 		//summarize document tab
 		summarize = new JPanel();
 		summarize.setLayout(new BorderLayout());
-
+		JTextArea summarizeText = new JTextArea();
+		summarizeText.setEditable(false);
+		JScrollPane summarizeScrollPane = new JScrollPane(summarizeText);
+		summarizeScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		summarize.setBorder(new EmptyBorder(10,10,10,10));
+		summarize.add(summarizeScrollPane, BorderLayout.CENTER);
 
 		tabbedPane.addTab("Search for Documents", search);
 		tabbedPane.addTab("Load Documents",  load);
