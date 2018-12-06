@@ -214,7 +214,7 @@ public class PirexGUI extends JFrame {
 		JScrollPane scrollPane1 = new JScrollPane(comments1);
 		scrollPane1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 		c1.fill = GridBagConstraints.HORIZONTAL;
-		c1.ipady = 200;      
+		c1.ipady = 200;      		
 		c1.weightx = 0.5;
 		c1.gridwidth = 3;
 		c1.gridx = 0;
