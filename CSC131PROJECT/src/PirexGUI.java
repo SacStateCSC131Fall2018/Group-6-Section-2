@@ -2,6 +2,8 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import javax.swing.event.*;
 import javax.swing.text.*;
 
@@ -193,22 +195,45 @@ public class PirexGUI extends JFrame {
 		c1.insets = new Insets(5,10,5,10);
 		c1.gridx = 0;
 		c1.gridy = 0;
-		load.add(new JLabel("Text File: "), c1);
+		load.add(new JLabel("Text File:"), c1);
 		c1.gridx = 1;
 		c1.fill = GridBagConstraints.BOTH;
 		c1.weightx = 1;
+		JTextField txtPath = new JTextField();
 		
-		load.add(new JTextField(), c1);
+		load.add(txtPath, c1);
 		c1.gridx = 2;
 		c1.fill = GridBagConstraints.NONE;
 		c1.weightx = 0;
-		load.add(new JButton("Browse"), c1);
+		
+		JButton btnBrowse = new JButton("Browse");
+		btnBrowse.addActionListener(new ActionListener() {
+		      public void actionPerformed(ActionEvent e) {
+		        JFileChooser fileChooser = new JFileChooser();
+		 
+		        // For Directory
+		        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		 
+		        // For File
+		        //fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+		 
+		        fileChooser.setAcceptAllFileFilterUsed(false);
+		 
+		        int rVal = fileChooser.showOpenDialog(null);
+		        if (rVal == JFileChooser.APPROVE_OPTION) {
+		          txtPath.setText(fileChooser.getSelectedFile().toString());
+		        }
+		      }
+		    });
+		
+		
+		
+		load.add(btnBrowse, c1);
 		c1.gridx = 0;
 		c1.gridy = 1;
 		c1.gridwidth = 3;
 		c1.fill = GridBagConstraints.BOTH;
 		c1.weighty = 0.5;
-		
 		JButton comments = new JButton("Process");
 		load.add(comments, c1);
 		JTextArea comments1 = new JTextArea();
@@ -237,10 +262,17 @@ public class PirexGUI extends JFrame {
 		c1.gridy = 2;       //third row
 		load.add(button, c1);
 		
+	
+		
 		//summarize document tab
 		summarize = new JPanel();
 		summarize.setLayout(new BorderLayout());
-
+		JTextArea summarizeText = new JTextArea();
+		summarizeText.setEditable(false);
+		JScrollPane summarizeScrollPane = new JScrollPane(summarizeText);
+		summarizeScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		summarize.setBorder(new EmptyBorder(10,10,10,10));
+		summarize.add(summarizeScrollPane, BorderLayout.CENTER);
 
 		tabbedPane.addTab("Search for Documents", search);
 		tabbedPane.addTab("Load Documents",  load);
