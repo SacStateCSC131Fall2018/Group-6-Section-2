@@ -30,10 +30,10 @@ public class PirexGUI extends JFrame {
 				System.exit(0);
 			}	
 		});
-		
+
 		save = new JMenuItem(new AbstractAction("Save Query")
 		{
-			  //Serialize
+			//Serialize
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
@@ -45,7 +45,7 @@ public class PirexGUI extends JFrame {
 				exportWindow.add(text);
 			}	
 		});
-		
+
 		export = new JMenuItem(new AbstractAction("Export")
 		{
 			//Serialize
@@ -60,8 +60,8 @@ public class PirexGUI extends JFrame {
 				exportWindow.add(text);
 			}	
 		});
-		
-		
+
+
 		file.add(save);
 		file.add(export);
 		file.add(exit);
@@ -71,7 +71,7 @@ public class PirexGUI extends JFrame {
 
 		about = new JMenuItem(new AbstractAction("About")
 		{
-			 //Serialize
+			//Serialize
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
@@ -85,12 +85,12 @@ public class PirexGUI extends JFrame {
 		});
 		help.add(about);
 		menuBar.add(help);
-		
+
 		options = new JMenu("Options");
-		
+
 		sources = new JMenuItem(new AbstractAction("Sources")
 		{
-			 //Serialize
+			//Serialize
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
@@ -102,10 +102,10 @@ public class PirexGUI extends JFrame {
 				sourceWindow.add(text);
 			}
 		});
-		
+
 		documents = new JMenuItem(new AbstractAction("Documents")
 		{
-			 //Serialize
+			//Serialize
 			private static final long serialVersionUID = 1L;
 
 			public void actionPerformed(ActionEvent e) {
@@ -117,7 +117,7 @@ public class PirexGUI extends JFrame {
 				docWindow.add(text);
 			}
 		});
-		
+
 		options.add(sources);
 		options.add(documents);
 		menuBar.add(options);
@@ -190,117 +190,117 @@ public class PirexGUI extends JFrame {
 
 		//load document tab
 		load = new JPanel();
-		String [] data;
 		load.setLayout(new GridBagLayout());
-		GridBagConstraints c1 = new GridBagConstraints();
-		c1.insets = new Insets(5,10,5,10);
-		c1.gridx = 0;
-		c1.gridy = 0;
-		load.add(new JLabel("Text File:"), c1);
-		c1.gridx = 1;
-		c1.fill = GridBagConstraints.BOTH;
-		c1.weightx = 1;
-		load.add(new JTextField(), c1);
-		c1.gridx = 0;
-		c1.gridy = 2;
+		c.insets = new Insets(5,10,5,10);
+		c.fill = GridBagConstraints.NONE;
+		c.weighty = 0;
+		c.gridx = 0;
+		c.gridy = 0;
+		c.anchor = GridBagConstraints.WEST;
+		c.gridwidth = 2;
+		load.add(new JLabel("Text File:"), c);
+
 		JTextField txtPath = new JTextField();
-		
-		load.add(txtPath, c1);
-		c1.gridx = 2;
-		c1.fill = GridBagConstraints.NONE;
-		c1.weightx = 0;
-		data = new String[3];
-		load.add(new JLabel("Text File Type"), c1);
-		
-		c1.gridx= 1;
+		c.gridx = 2;
+		c.fill = GridBagConstraints.BOTH;
+		c.gridwidth = 4;
+		c.anchor = GridBagConstraints.CENTER;
+		c.weightx = 1;
+		load.add(txtPath, c);
 
 		JButton btnBrowse = new JButton("Browse");
 		btnBrowse.addActionListener(new ActionListener() {
-		      public void actionPerformed(ActionEvent e) {
-		        JFileChooser fileChooser = new JFileChooser();
-		 
-		        // For Directory
-		        fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-		 
-		        // For File
-		        //fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-		 
-		        fileChooser.setAcceptAllFileFilterUsed(false);
-		 
-		        int rVal = fileChooser.showOpenDialog(null);
-		        if (rVal == JFileChooser.APPROVE_OPTION) {
-		          txtPath.setText(fileChooser.getSelectedFile().toString());
-		        }
-		      }
-		    });
-		
-		load.add(btnBrowse, c1);
-		c1.gridx = 0;
-		c1.gridy = 1;
-		c1.gridwidth = 3;
-		c1.gridy= 0;
-        data[0] = "Project Gutenberg file";
-        data[1] = "HTML file";
-        data[2] = "Rich Text Format file";
-        JComboBox fileType = new JComboBox(data);
-        
-		/*contentPane.setLayout(new BorderLayout());
-		 JComboBox patternList = new JComboBox();
-	     patternList.setEditable(true);
-	     JButton textfiletype  = new JButton("Text file type");
-	     textfiletype.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e1) {
-					queryText.setText("");
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser fileChooser = new JFileChooser();
+
+				// For Directory
+				fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+				// For File
+				//fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+
+				fileChooser.setAcceptAllFileFilterUsed(false);
+
+				int rVal = fileChooser.showOpenDialog(null);
+				if (rVal == JFileChooser.APPROVE_OPTION) {
+					txtPath.setText(fileChooser.getSelectedFile().toString());
 				}
-			});*/
-	     
-	     
-		load.add(new JButton("Browse"), c1);
-		c1.gridx = 0;// grid
-		c1.gridy = 4;
-		c1.gridwidth = 1;
-		c1.fill = GridBagConstraints.BOTH;
-		c1.weighty = 0;
-		c1.weighty = 0.5;
-		
+			}
+		});
+		c.gridx = 6;
+		c.fill = GridBagConstraints.NONE;
+		c.gridwidth = 1;
+		c.weightx = 0;
+		load.add(btnBrowse, c);
 
-		c1.gridwidth = 3;
-		c1.fill = GridBagConstraints.BOTH;
-		c1.weighty = 0.5;
-		
-		JButton comments = new JButton("Process");
-		load.add(comments, c1);
-		JTextArea comments1 = new JTextArea();
-		comments1.setEditable(false);
-		JScrollPane scrollPane1 = new JScrollPane(comments1);
-		scrollPane1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
-		c1.fill = GridBagConstraints.BOTH;    		
-		c1.weightx = 1;
-		c1.weighty = 1;
-		c1.gridwidth = 3;
-		c1.gridx = 0;
-		c1.gridy = 5;
-		load.add(scrollPane1, c1); 
+		c.gridx = 0;
+		c.gridy = 1;
+		c.gridwidth = 3;
+		c.fill = GridBagConstraints.NONE;
+		c.weightx = 0;
+		load.add(new JLabel("Text File Type:"), c);
 
-		c1.ipady = 200;      		
-		c1.weightx = 0.5;
-		c1.gridwidth = 3;
-	
-		JButton button = new JButton("Submit");
-		button.setBounds(50,100,95,30);  
-		load.add(button);  
-		load.setSize(200,200);    
-		load.setVisible(true); 
-		c1.fill = GridBagConstraints.HORIZONTAL;
-		c1.ipady = 0;       //reset to default
-		c1.weighty = 1.0;   //request any extra vertical space
-		c1.anchor = GridBagConstraints.PAGE_END; //bottom of space
-		c1.insets = new Insets(10,0,0,0);  //top padding
-		c1.gridx = 1;       //aligned with button 2
-		c1.gridwidth = 2;   //2 columns wide
-		c1.gridy = 2;       //third row
-		load.add(button, c1);
-	
+		String [] data = {"Project Gutenberg file",
+				"HTML file",
+		"Rich Text Format file"};
+		JComboBox<String> fileType = new JComboBox<String>(data);
+		c.gridx = 3;
+		c.gridy = 1;
+		c.gridwidth = 4;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weightx = 1;
+		load.add(fileType, c);
+
+		JLabel bookTitle = new JLabel("Title:");
+		c.gridx = 0;
+		c.gridy = 2;
+		c.gridwidth = 1;
+		c.fill = GridBagConstraints.NONE;
+		c.weightx = 0;
+		load.add(bookTitle, c);
+
+		JTextField titleText = new JTextField();
+		c.gridx = 1;
+		c.gridwidth = 3;
+		c.fill = GridBagConstraints.BOTH;
+		c.weightx = 0.5;
+		load.add(titleText, c);
+
+		JLabel bookAuthor = new JLabel("Author:");
+		c.gridx = 4;
+		c.gridwidth = 1;
+		c.fill = GridBagConstraints.NONE;
+		c.weightx = 0;
+		load.add(bookAuthor, c);
+
+		JTextField authorText = new JTextField();
+		c.gridx = 5;
+		c.gridwidth = 2;
+		c.fill = GridBagConstraints.BOTH;
+		c.weightx = 0.5;
+		load.add(authorText, c);
+
+		JButton processBut = new JButton("Process");
+		c.gridx = 0;// grid
+		c.gridy = 4;
+		c.weighty = 0;
+		c.weightx = 0;
+		c.gridwidth = 3;
+		c.fill = GridBagConstraints.BOTH;
+		load.add(processBut, c);
+
+		JTextArea results = new JTextArea();
+		results.setEditable(false);
+		JScrollPane resultsScrollPane = new JScrollPane(results);
+		resultsScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		c.fill = GridBagConstraints.BOTH;    		
+		c.weightx = 1;
+		c.weighty = 1;
+		c.gridwidth = 7;
+		c.gridx = 0;
+		c.gridy = 5;
+		load.add(resultsScrollPane, c); 
+
 		//summarize document tab
 		summarize = new JPanel();
 		summarize.setLayout(new BorderLayout());
