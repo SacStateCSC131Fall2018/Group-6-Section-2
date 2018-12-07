@@ -279,10 +279,19 @@ public class PirexGUI extends JFrame {
 		c.fill = GridBagConstraints.BOTH;
 		c.weightx = 0.5;
 		load.add(authorText, c);
+		
+		JSeparator sep = new JSeparator(JSeparator.HORIZONTAL);
+		sep.setPreferredSize(new Dimension(5,1));
+		c.gridx = 0;
+		c.gridy = 4;
+		c.gridwidth = 0;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.weighty = 0;
+		load.add(sep, c);
 
 		JButton processBut = new JButton("Process");
 		c.gridx = 0;// grid
-		c.gridy = 4;
+		c.gridy = 5;
 		c.weighty = 0;
 		c.weightx = 0;
 		c.gridwidth = 3;
@@ -298,7 +307,7 @@ public class PirexGUI extends JFrame {
 		c.weighty = 1;
 		c.gridwidth = 7;
 		c.gridx = 0;
-		c.gridy = 5;
+		c.gridy = 6;
 		load.add(resultsScrollPane, c); 
 
 		//summarize document tab
