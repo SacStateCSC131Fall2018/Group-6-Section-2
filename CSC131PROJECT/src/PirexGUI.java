@@ -190,6 +190,7 @@ public class PirexGUI extends JFrame {
 
 		//load document tab
 		load = new JPanel();
+		String [] data;
 		load.setLayout(new GridBagLayout());
 		GridBagConstraints c1 = new GridBagConstraints();
 		c1.insets = new Insets(5,10,5,10);
@@ -199,13 +200,20 @@ public class PirexGUI extends JFrame {
 		c1.gridx = 1;
 		c1.fill = GridBagConstraints.BOTH;
 		c1.weightx = 1;
+		load.add(new JTextField(), c1);
+		c1.gridx = 0;
+		c1.gridy = 2;
 		JTextField txtPath = new JTextField();
 		
 		load.add(txtPath, c1);
 		c1.gridx = 2;
 		c1.fill = GridBagConstraints.NONE;
 		c1.weightx = 0;
+		data = new String[3];
+		load.add(new JLabel("Text File Type"), c1);
 		
+		c1.gridx= 1;
+
 		JButton btnBrowse = new JButton("Browse");
 		btnBrowse.addActionListener(new ActionListener() {
 		      public void actionPerformed(ActionEvent e) {
@@ -230,23 +238,54 @@ public class PirexGUI extends JFrame {
 		c1.gridx = 0;
 		c1.gridy = 1;
 		c1.gridwidth = 3;
+		c1.gridy= 0;
+        data[0] = "Project Gutenberg file";
+        data[1] = "HTML file";
+        data[2] = "Rich Text Format file";
+        JComboBox fileType = new JComboBox(data);
+        
+		/*contentPane.setLayout(new BorderLayout());
+		 JComboBox patternList = new JComboBox();
+	     patternList.setEditable(true);
+	     JButton textfiletype  = new JButton("Text file type");
+	     textfiletype.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent e1) {
+					queryText.setText("");
+				}
+			});*/
+	     
+	     
+		load.add(new JButton("Browse"), c1);
+		c1.gridx = 0;// grid
+		c1.gridy = 4;
+		c1.gridwidth = 1;
+		c1.fill = GridBagConstraints.BOTH;
+		c1.weighty = 0;
+		c1.weighty = 0.5;
+		
+
+		c1.gridwidth = 3;
 		c1.fill = GridBagConstraints.BOTH;
 		c1.weighty = 0.5;
 		
 		JButton comments = new JButton("Process");
 		load.add(comments, c1);
 		JTextArea comments1 = new JTextArea();
-		comments1.setEditable(true);
+		comments1.setEditable(false);
 		JScrollPane scrollPane1 = new JScrollPane(comments1);
-		scrollPane1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		c1.fill = GridBagConstraints.HORIZONTAL;
+		scrollPane1.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
+		c1.fill = GridBagConstraints.BOTH;    		
+		c1.weightx = 1;
+		c1.weighty = 1;
+		c1.gridwidth = 3;
+		c1.gridx = 0;
+		c1.gridy = 5;
+		load.add(scrollPane1, c1); 
+
 		c1.ipady = 200;      		
 		c1.weightx = 0.5;
 		c1.gridwidth = 3;
-		c1.gridx = 0;
-		c1.gridy = 4;
-		load.add(scrollPane1, c1);
-		
+	
 		JButton button = new JButton("Submit");
 		button.setBounds(50,100,95,30);  
 		load.add(button);  
