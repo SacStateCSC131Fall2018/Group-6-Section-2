@@ -226,14 +226,19 @@ public class PirexGUI extends JFrame {
 		      }
 		    });
 		
-		
-		
 		load.add(btnBrowse, c1);
 		c1.gridx = 0;
 		c1.gridy = 1;
 		c1.gridwidth = 3;
 		c1.fill = GridBagConstraints.BOTH;
 		c1.weighty = 0.5;
+		
+		load.add(new JLabel("Text File Type:"), c1);
+		c1.gridx = 1;
+		c1.gridy = 2;
+		c1.fill = GridBagConstraints.BOTH;
+		c1.weightx = 1;
+		
 		JButton comments = new JButton("Process");
 		load.add(comments, c1);
 		JTextArea comments1 = new JTextArea();
@@ -245,8 +250,9 @@ public class PirexGUI extends JFrame {
 		c1.weightx = 0.5;
 		c1.gridwidth = 3;
 		c1.gridx = 0;
-		c1.gridy = 2;
+		c1.gridy = 4;
 		load.add(scrollPane1, c1);
+		
 		JButton button = new JButton("Submit");
 		button.setBounds(50,100,95,30);  
 		load.add(button);  
@@ -261,9 +267,7 @@ public class PirexGUI extends JFrame {
 		c1.gridwidth = 2;   //2 columns wide
 		c1.gridy = 2;       //third row
 		load.add(button, c1);
-		
 	
-		
 		//summarize document tab
 		summarize = new JPanel();
 		summarize.setLayout(new BorderLayout());
