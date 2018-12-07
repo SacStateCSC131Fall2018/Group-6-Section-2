@@ -192,22 +192,20 @@ public class PirexGUI extends JFrame {
 		load = new JPanel();
 		load.setLayout(new GridBagLayout());
 		c.insets = new Insets(5,10,5,10);
-		c.fill = GridBagConstraints.NONE;
-		c.weighty = 0;
-		c.gridx = 0;
-		c.gridy = 0;
-		c.anchor = GridBagConstraints.WEST;
-		c.gridwidth = 2;
-		load.add(new JLabel("Text File:"), c);
+		
+		// Create container for top row
+		JPanel top = new JPanel();
+		top.setLayout(new BoxLayout(top,BoxLayout.X_AXIS));
+		top.add(new JLabel("Text File:"));
+		
+		// Add spacing between components
+		Dimension spacing = new Dimension(20,0);
+		top.add(new Box.Filler(spacing, spacing, spacing));
 
 		JTextField txtPath = new JTextField();
-		c.gridx = 2;
-		c.fill = GridBagConstraints.BOTH;
-		c.gridwidth = 4;
-		c.anchor = GridBagConstraints.CENTER;
-		c.weightx = 1;
-		load.add(txtPath, c);
-
+		top.add(txtPath);
+		top.add(new Box.Filler(spacing, spacing, spacing));
+		
 		JButton btnBrowse = new JButton("Browse");
 		btnBrowse.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -227,11 +225,13 @@ public class PirexGUI extends JFrame {
 				}
 			}
 		});
-		c.gridx = 6;
-		c.fill = GridBagConstraints.NONE;
-		c.gridwidth = 1;
-		c.weightx = 0;
-		load.add(btnBrowse, c);
+		top.add(btnBrowse);
+		c.gridx = 0;
+		c.gridy = 0;
+		c.gridwidth = 7;
+		c.weighty = 0;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		load.add(top, c);
 
 		c.gridx = 0;
 		c.gridy = 1;
