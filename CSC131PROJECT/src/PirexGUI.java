@@ -233,12 +233,6 @@ public class PirexGUI extends JFrame {
 		c1.fill = GridBagConstraints.BOTH;
 		c1.weighty = 0.5;
 		
-		load.add(new JLabel("Text File Type:"), c1);
-		c1.gridx = 1;
-		c1.gridy = 2;
-		c1.fill = GridBagConstraints.BOTH;
-		c1.weightx = 1;
-		
 		JButton comments = new JButton("Process");
 		load.add(comments, c1);
 		JTextArea comments1 = new JTextArea();
